@@ -89,7 +89,7 @@ public class PastAfvScrollView extends ScrollView {
             refreshTime = System.currentTimeMillis();
             onLoadListener.onLoad();
         }
-        scroller.startScroll(0, 0, 0, headerHeight, 1);
+        scroller.startScroll(0, 0, 0, headerHeight, SCROLL_DURATION);
         invalidate();
     }
 
