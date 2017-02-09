@@ -30,6 +30,6 @@ public class M1Fragment extends BaseAfvFragment {
             public void run() {
                onLoadFinish();
             }
-        }, 2000);
+        }, 1000);
     }
 }

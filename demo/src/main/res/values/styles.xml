@@ -17,9 +17,8 @@
     <style name="MTheme" parent="Base.Theme.DesignDemo">
     </style>
 
-
     <style name="ToolBarStyle" parent="Widget.AppCompat.Toolbar">
-        <item name="actionMenuTextColor">#ff63BBF7</item>
+        <item name="actionMenuTextColor">#ffffff</item>
     </style>
 
 </resources>

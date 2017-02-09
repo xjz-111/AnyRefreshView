@@ -21,7 +21,7 @@ public abstract class BasePastAfvFragment extends BaseAnyRefreshViewFragment imp
     private PastAfvScrollView scrollView;
 
     @Override
-    protected boolean isRefreshEnable() {
+    public boolean isRefreshEnable() {
         return true;
     }
 
@@ -31,14 +31,14 @@ public abstract class BasePastAfvFragment extends BaseAnyRefreshViewFragment imp
     }
 
     @Override
-    protected void onAutoRefresh(){
+    public void onAutoRefresh(){
         if (null != scrollView){
             scrollView.onAutoRefresh();
         }
     }
 
     @Override
-    protected void onLoadFinish(){
+    public void onLoadFinish(){
         if (null != scrollView){
             scrollView.stopRefresh(true);
         }

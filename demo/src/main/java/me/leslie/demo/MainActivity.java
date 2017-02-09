@@ -1,5 +1,6 @@
 package me.leslie.demo;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,14 +10,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import me.leslie.afv.base.BaseAnyRefreshViewFragment;
+
 import static me.leslie.demo.MainActivity.Type.NewNormal;
 import static me.leslie.demo.MainActivity.Type.NewWeb;
 import static me.leslie.demo.MainActivity.Type.OldNormal;
 import static me.leslie.demo.MainActivity.Type.OldWeb;
 
 public class MainActivity extends AppCompatActivity {
-    private Type type = NewNormal;
-    private Fragment lastFragment;
+    private Type type = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("It's a demo");
+        toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
 
         setType(NewNormal);
@@ -76,23 +79,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setType(Type type) {
+        if (this.type == type) return;
+        this.type = type;
+        Fragment f = null;
+        if (Type.NewNormal == type){
+            f = new M1Fragment();
+        }else if (Type.NewWeb == type){
+            f = new M2Fragment();
+        }else if (Type.OldNormal == type){
+            f = new PastM1Fragment();
+        }else if (Type.OldWeb == type){
+            f = new PastM2Fragment();
+        }
+        replace(f);
+    }
+
+
+    private void replace(Fragment f){
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        if (null != lastFragment){
-            ft.remove(lastFragment);
+        Fragment fold = fm.findFragmentByTag("demo");
+        if (null != fold && fold instanceof BaseAnyRefreshViewFragment){
+            ((BaseAnyRefreshViewFragment)fold).onLoadFinish();
         }
-        this.type = type;
-        if (Type.NewNormal == type){
-            lastFragment = new M1Fragment();
-        }else if (Type.NewWeb == type){
-            lastFragment = new M2Fragment();
-        }else if (Type.OldNormal == type){
-            lastFragment = new PastM1Fragment();
-        }else if (Type.OldWeb == type){
-            lastFragment = new PastM2Fragment();
-        }
-        ft.replace(R.id.replace, lastFragment);
-        ft.commitAllowingStateLoss();
+        ft.replace(R.id.replace, f, "demo").commit();
     }
 
     enum Type{

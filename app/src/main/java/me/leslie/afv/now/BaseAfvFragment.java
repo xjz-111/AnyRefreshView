@@ -25,7 +25,7 @@ public abstract class BaseAfvFragment extends BaseAnyRefreshViewFragment impleme
 
 
     @Override
-    protected boolean isRefreshEnable() {
+    public boolean isRefreshEnable() {
         return true;
     }
 
@@ -35,7 +35,7 @@ public abstract class BaseAfvFragment extends BaseAnyRefreshViewFragment impleme
     }
 
     @Override
-    protected void onAutoRefresh(){
+    public void onAutoRefresh(){
         if (isRefreshEnable() && null != refreshLayout && !refreshLayout.isRefreshing()){
             refreshLayout.post(truRunnable);
             onLoad();
@@ -43,7 +43,7 @@ public abstract class BaseAfvFragment extends BaseAnyRefreshViewFragment impleme
     }
 
     @Override
-    protected void onLoadFinish(){
+    public void onLoadFinish(){
         if (null != refreshLayout){
             if (State.Top == state){
                 setEnable(true);

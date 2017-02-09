@@ -26,7 +26,7 @@ public abstract class BaseAnyRefreshViewFragment extends Fragment{
      * 是否可刷新，默认实现
      * @return
      */
-    protected abstract boolean isRefreshEnable();
+    public abstract boolean isRefreshEnable();
 
     /**
      * 获取View
@@ -37,11 +37,11 @@ public abstract class BaseAnyRefreshViewFragment extends Fragment{
     /**
      * 自动刷新
      */
-    protected abstract void onAutoRefresh();
+    public abstract void onAutoRefresh();
 
     /**
      * 页面所有请求完成后调用
      */
-    protected abstract void onLoadFinish();
+    public abstract void onLoadFinish();
 
 }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.widget.ScrollView;
@@ -79,9 +78,6 @@ public class AfvScrollView extends ScrollView {
             isTop = false;
             isBottom = true;
         }
-
-        Log.i("zxj", "scrollY : " + scrollY + "  clampedY : " + clampedY);
-
         onNotifyOnAfvScrollListener();
     }
 
