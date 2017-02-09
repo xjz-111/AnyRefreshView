@@ -57,7 +57,12 @@ public abstract class BasePastAfvFragment extends BaseAnyRefreshViewFragment imp
         scrollView.setOnScrollListener(this);
         scrollView.setEnabled(isRefreshEnable());
         initView();
-        onAutoRefresh();
+        container.getHandler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                onAutoRefresh();
+            }
+        }, 300);
         return scrollView;
     }
 
