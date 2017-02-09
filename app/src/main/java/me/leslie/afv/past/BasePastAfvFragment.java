@@ -33,7 +33,7 @@ public abstract class BasePastAfvFragment extends BaseAnyRefreshViewFragment imp
     @Override
     protected void onAutoRefresh(){
         if (null != scrollView){
-            scrollView.onAutoPullDown();
+            scrollView.onAutoRefresh();
         }
     }
 

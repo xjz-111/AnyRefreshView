@@ -80,7 +80,7 @@ public class PastAfvScrollView extends ScrollView {
         init();
     }
 
-    public void onAutoPullDown() {
+    public void onAutoRefresh() {
         String last = getLastRefreshTime();
         headerTime.setText(last);
         isRefreshing = true;
