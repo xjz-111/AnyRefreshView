@@ -7,15 +7,15 @@
             android:checkableBehavior="single">
             <item
                 android:id="@+id/new_1"
-                android:title="New 1" />
+                android:title="NewNormal" />
             <item
                 android:id="@+id/new_2"
-                android:title="New 2" />
+                android:title="NewWeb" />
             <item
                 android:id="@+id/old_1"
-                android:title="Old 1" />
+                android:title="OldNormal" />
             <item
                 android:id="@+id/old_2"
-                android:title="Old 2" />
+                android:title="OldWeb" />
         </group>
 </menu>
