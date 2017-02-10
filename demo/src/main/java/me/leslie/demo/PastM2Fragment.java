@@ -39,6 +39,6 @@ public class PastM2Fragment extends BasePastAfvFragment {
 
     @Override
     public void onLoad() {
-        webView.loadUrl("https://www.baidu.com/");
+        webView.loadUrl("http://m.baidu.com/from=844b/pu=sz%401321_1001/s?word=coding&sa=ib&ts=0&rsv_pq=15322756475632507223&rsv_t=55aeiM7UBsyh07g9oGSTj9w5hgBPfmdIJHJFOdAp04QdXyXKk7WflKQxqg&ms=1");
     }
 }
