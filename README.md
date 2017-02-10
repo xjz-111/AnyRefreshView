@@ -35,3 +35,7 @@ public class MFragment extends BaseAfvFragment / BasePastAfvFragment {
     }
 }
 ```
+
+## Demo
+
+![image](https://github.com/zhaoxj/AnyRefreshView/blob/master/screencast/1.gif)
